@@ -29,5 +29,5 @@ If the person you are talking to is not technical: reply in the language they wr
 
 ## Known leftovers
 
-- `supabase/functions/read-recipes` still reads Google Sheets through Lovable's connector gateway (`LOVABLE_API_KEY`, `GOOGLE_SHEETS_API_KEY`). It only works while that connection exists. It should be rewritten to call the Google Sheets API directly.
-- `docs/plans/` holds the earlier feature plans. They are history, not instructions.
+- `supabase/functions/read-recipes` (the recipe lookup behind the sales import dialog) still reads Google Sheets through Lovable's connector gateway (`LOVABLE_API_KEY`, `GOOGLE_SHEETS_API_KEY`). On the new Supabase project (`vqgiduwrltjmachlzesp`) it is not deployed and those secrets do not exist, so the sales import fails with "Uvoz ni uspel"; the rest of the app is unaffected. It should be rewritten to call the Google Sheets API directly. Postponed on purpose: it needs Google Cloud credentials created by a person, so do not start it unasked. Plan: `docs/plans/uvoz-receptur-brez-lovable-2026-11-11.md`.
+- `docs/plans/` holds the earlier feature plans. They are history, not instructions, except the read-recipes plan above, which is still to do.
