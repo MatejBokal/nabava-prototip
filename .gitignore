@@ -17,11 +17,23 @@ dist-ssr
 .env.*
 !.env.example
 
+# Supabase CLI (local link state, never shared)
+supabase/.temp
+supabase/.branches
+
+# Vercel CLI (local project link)
+.vercel
+
+# Claude Code (personal settings; .claude/launch.json stays shared)
+.claude/settings.local.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.suo
 *.ntvs*
 *.njsproj
