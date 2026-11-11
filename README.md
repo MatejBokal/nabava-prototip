@@ -1,26 +1,31 @@
-# Nabava taprav
+# Nabava Taprav
 
-naredila bova mvp nabavni list za nas v lovable. v priponki imaš excell datoteko, ki jo trenutno uporabljam. naj bo res enostavno. Notri moramo imeti artikle, zraven dobavitelje. potem mora biti še ozadje, kjer štimamo kakšno je ime artikla pri dobavitelju, da mu pošlje točno mail. tam za vsak artikel nastavimo tudi dobavitelja. Mora biti tako, da vneseš trenutno zalogo, in ti izračuna koliko moraš naročiti, sepravi, da nastaviš količine, ali pa da vneseš samo koliko da naročiš da nisi vedno odvisen od tega. Pošiljanje mailov naj bo preko outlooka, da pošljes 1 dobavitelju in mu spiše mail (odpre zunanjo app), ti potem pošljes, je pa treba potem nastimati maile se dobaviteljem. app bo v mobilni verziji.
+A simple, mobile-first purchase list. It holds the articles and their suppliers, plus a back-office area where each article's name *at the supplier* is set, so every order email names things exactly as that supplier expects.
 
-This project was built with [Lovable](https://lovable.dev).
+- Enter the current stock and the app calculates how much to order, or type the order quantity directly.
+- Each article is assigned to a supplier. Orders are sent per supplier: the app opens a prepared email in the user's mail app (Outlook), and the user presses send.
+- Sales can be imported to drive ordering, and recipes are read from a Google Sheet (see [docs/plans](docs/plans) for the history of how features were planned).
 
-**Live app**: https://nabavataprav.lovable.app
+## Stack
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/dcb72969-325e-4179-8d0d-22d7b5eca538).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+React, TypeScript, Vite, Tailwind CSS, shadcn/ui, Supabase (database, auth, edge functions), Vitest.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requires Node.js and npm.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
 npm i
-npm run dev
+cp .env.example .env   # then fill in the three Supabase values
+npm run dev            # http://localhost:8080
 ```
+
+Other scripts: `npm run lint`, `npm test`, `npm run build`.
+
+## How we work
+
+GitHub is the only place this project lives, and [Claude Code](https://claude.com/claude-code) is how it gets developed. There are two collaborators, working at the same time, so:
+
+- Nobody commits directly to `main`. Every change is made on its own branch and arrives through a pull request.
+- Claude Code does the git work (branching, committing, pushing, opening the pull request), following the rules in [CLAUDE.md](CLAUDE.md).
+- The repository owner reviews and merges pull requests.
