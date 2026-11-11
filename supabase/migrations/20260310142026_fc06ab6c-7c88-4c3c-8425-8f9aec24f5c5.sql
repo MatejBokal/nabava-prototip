@@ -1,0 +1,1 @@
+ALTER TABLE public.articles ADD COLUMN day_targets jsonb DEFAULT NULL;

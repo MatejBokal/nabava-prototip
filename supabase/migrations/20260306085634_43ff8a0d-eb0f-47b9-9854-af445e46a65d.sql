@@ -1,0 +1,1 @@
+ALTER TABLE public.articles ADD COLUMN note TEXT NOT NULL DEFAULT '';

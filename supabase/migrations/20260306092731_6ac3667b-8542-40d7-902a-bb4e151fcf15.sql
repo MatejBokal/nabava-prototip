@@ -1,0 +1,1 @@
+ALTER TABLE public.articles ADD COLUMN storage_type TEXT NOT NULL DEFAULT 'suho';
